@@ -245,6 +245,7 @@ require("lazy").setup({
 		config = function()
 			require("toggleterm").setup({
 				start_in_insert = true,
+				authochdir = true,
 				direction = "horizontal",
 			})
 		end,
