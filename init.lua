@@ -7,7 +7,6 @@ vim.g.maplocalleader = " "
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
-vim.g.aw = true
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
@@ -66,8 +65,6 @@ vim.opt.splitbelow = true
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = "split"
 
--- I think this is autosave (keywords: auto-save file auto save filesave)
---vim.opt.aw = true
 -- Show which line your cursor is on
 vim.opt.cursorline = true
 
@@ -156,12 +153,15 @@ require("lazy").setup({
 				options = {
 					cursorline = true,
 					terminal_colors = true,
-					transparency = false, -- Domyślnie bez przezroczystości
+					transparency = true, -- Domyślnie bez przezroczystości
 					theme = "onedark", -- Możesz zmienić na onelight, onedark_vivid, onedark_dark
 				},
 			})
 			vim.cmd("colorscheme onedark") -- Ustawienie domyślnego motywu
 		end,
+	},
+	{
+		"airblade/vim-rooter",
 	},
 	{
 		"akinsho/toggleterm.nvim",
@@ -393,6 +393,7 @@ require("lazy").setup({
 		},
 	},
 	{ "Bilal2453/luvit-meta", lazy = true },
+	{ "mfussenegger/nvim-jdtls" },
 	{
 		-- Main LSP Configuration
 		"neovim/nvim-lspconfig",
@@ -401,7 +402,7 @@ require("lazy").setup({
 			{ "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
-
+			"nvim-java/nvim-java",
 			-- Useful status updates for LSP.
 			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 			{ "j-hui/fidget.nvim", opts = {} },
@@ -606,6 +607,15 @@ require("lazy").setup({
 						-- certain features of an LSP (for example, turning off formatting for ts_ls)
 						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
 						require("lspconfig")[server_name].setup(server)
+					end,
+					jdtls = function()
+						require("java").setup({
+							-- Your custom jdtls settings goes here
+						})
+
+						require("lspconfig").jdtls.setup({
+							-- Your custom nvim-java configuration goes here
+						})
 					end,
 				},
 			})
@@ -852,6 +862,7 @@ require("lazy").setup({
 				"query",
 				"vim",
 				"vimdoc",
+				"java",
 			},
 			-- Autoinstall languages that are not installed
 			auto_install = true,
@@ -881,11 +892,10 @@ require("lazy").setup({
 	--  Here are some example plugins that I've included in the Kickstart repository.
 	--  Uncomment any of the lines below to enable them (you will need to restart nvim).
 	--
-	-- require 'kickstart.plugins.debug',
+	-- require("kickstart.plugins.debug"),
 	-- require 'kickstart.plugins.indent_line',
 	-- require 'kickstart.plugins.lint',
 	-- require("default.plugins.autopairs"),
-	-- vim.g.aw = true
 	-- require 'kickstart.plugins.neo-tree',
 	-- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
