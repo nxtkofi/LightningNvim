@@ -13,6 +13,7 @@ vim.g.have_nerd_font = true
 --  For more options, you can see `:help option-list`
 
 -- Make line numbers default
+vim.opt.conceallevel = 1
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
@@ -161,6 +162,36 @@ require("lazy").setup({
 		end,
 	},
 	{ "mbbill/undotree" },
+	{
+		"epwalsh/obsidian.nvim",
+		version = "*", -- recommended, use latest release instead of latest commit
+		config = function()
+			require("obsidian").setup({
+				ft = "markdown",
+				templates = {
+					folder = "~/vaults/personal/template",
+				},
+				daily_notes = {
+					folder = "./daily",
+					default_tags = { "daily-notes" },
+					template = "daily.md",
+				},
+				completion = {
+					nvim_cmp = true,
+					min_chars = 2,
+				},
+				dependencies = {
+					"nvim-lua/plenary.nvim",
+				},
+				workspaces = {
+					{
+						name = "personal",
+						path = "~/vaults/personal/nvim/",
+					},
+				},
+			})
+		end,
+	},
 	{
 		"xiyaowong/transparent.nvim",
 		config = function()
@@ -356,15 +387,6 @@ require("lazy").setup({
 					},
 				},
 			})
-			--		function ToggleTransparency()
-			--		local onedarkpro = require("onedarkpro.config")
-			--		local current_options = onedarkpro.options
-			--		current_options.ransparency = not current_options.transparency
-			--	require("onedarkpro").setup({ options = current_options }) -- Aktualizacja opcji
-			--require("lualine").setup({ options = { theme = "pywal" } })
-			--	require("onedarkpro").load() -- Przeładowanie motywu
-			--	print("Transparency " .. (current_options.transparency and "Enabled" or "Disabled"))
-			--end
 
 			-- Dodaj skrót do przełączania przezroczystości
 			vim.api.nvim_set_keymap("n", "<leader>tc", ":TransparentToggle<CR>", { noremap = true, silent = true }) -- Enable Telescope extensions if they are installed
@@ -636,9 +658,9 @@ require("lazy").setup({
 			--
 			--  You can press `g?` for help in this menu.
 			require("mason").setup()
-
 			-- You can add other tools here that you want Mason to install
 			-- for you, so that they are available from within Neovim.
+			--
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
@@ -936,7 +958,7 @@ require("lazy").setup({
 				-- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
 				--  If you are experiencing weird indenting issues, add the language to
 				--  the list of additional_vim_regex_highlighting and disabled languages for indent.
-				additional_vim_regex_highlighting = { "ruby" },
+				additional_vim_regex_highlighting = { "markdown" },
 			},
 			indent = { enable = true, disable = { "ruby" } },
 		},
