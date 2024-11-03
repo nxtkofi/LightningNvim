@@ -76,7 +76,7 @@ vim.opt.scrolloff = 10
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
-vim.keymap.set("n", "<leader><CR>", ":ToggleTerm direction=horizontal<CR>")
+vim.keymap.set("n", "<leader><CR>", ":ToggleTerm<CR>")
 --
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- Diagnostic keymaps
@@ -153,12 +153,57 @@ require("lazy").setup({
 				options = {
 					cursorline = true,
 					terminal_colors = true,
-					transparency = true, -- Domyślnie bez przezroczystości
-					theme = "onedark", -- Możesz zmienić na onelight, onedark_vivid, onedark_dark
+					transparency = vim.g.transparent_enabled,
+					theme = "onedark",
 				},
 			})
-			vim.cmd("colorscheme onedark") -- Ustawienie domyślnego motywu
+			vim.cmd("colorscheme onedark")
 		end,
+	},
+	{ "mbbill/undotree" },
+	{
+		"xiyaowong/transparent.nvim",
+		config = function()
+			require("transparent").setup({
+				groups = { -- Grupy, które będą miały przezroczyste tło
+					"Normal",
+					"NormalNC",
+					"Comment",
+					"Constant",
+					"Special",
+					"Identifier",
+					"Statement",
+					"PreProc",
+					"Type",
+					"Underlined",
+					"Todo",
+					"String",
+					"Function",
+					"Conditional",
+					"Repeat",
+					"Operator",
+					"Structure",
+					"LineNr",
+					"NonText",
+					"SignColumn",
+					"CursorLine",
+					"CursorLineNr",
+					"StatusLine",
+					"StatusLineNC",
+					"EndOfBuffer",
+					"WinSeparator",
+				},
+				extra_groups = { "NeoTreeNormal", "NeoTreeNormalNC", "NeoTreeCursorLine" }, -- Możesz tu dodać dodatkowe grupy, jeśli potrzebujesz
+				exclude_groups = { -- Grupy, które pozostaną nieprzezroczyste
+					"NormalFloat", -- Okna pływające, np. pomoc syntaxu (Shift+K)
+					"FloatBorder", -- Obramowanie dla okien pływających
+					"Term*", -- Wszystkie okna terminalowe
+				},
+			})
+		end,
+	},
+	{
+		"pocco81/auto-save.nvim",
 	},
 	{
 		"airblade/vim-rooter",
@@ -166,7 +211,12 @@ require("lazy").setup({
 	{
 		"akinsho/toggleterm.nvim",
 		version = "*",
-		config = true,
+		config = function()
+			require("toggleterm").setup({
+				start_in_insert = true,
+				direction = "horizontal",
+			})
+		end,
 	},
 	{
 		"cljoly/telescope-repo.nvim",
@@ -306,23 +356,18 @@ require("lazy").setup({
 					},
 				},
 			})
-			function ToggleTransparency()
-				local onedarkpro = require("onedarkpro.config")
-				local current_options = onedarkpro.options
-				current_options.transparency = not current_options.transparency
-				require("onedarkpro").setup({ options = current_options }) -- Aktualizacja opcji
-				require("lualine").setup({ options = { theme = "pywal" } })
-				require("onedarkpro").load() -- Przeładowanie motywu
-				print("Transparency " .. (current_options.transparency and "Enabled" or "Disabled"))
-			end
+			--		function ToggleTransparency()
+			--		local onedarkpro = require("onedarkpro.config")
+			--		local current_options = onedarkpro.options
+			--		current_options.ransparency = not current_options.transparency
+			--	require("onedarkpro").setup({ options = current_options }) -- Aktualizacja opcji
+			--require("lualine").setup({ options = { theme = "pywal" } })
+			--	require("onedarkpro").load() -- Przeładowanie motywu
+			--	print("Transparency " .. (current_options.transparency and "Enabled" or "Disabled"))
+			--end
 
 			-- Dodaj skrót do przełączania przezroczystości
-			vim.api.nvim_set_keymap(
-				"n",
-				"<leader>tc",
-				":lua ToggleTransparency()<CR>",
-				{ noremap = true, silent = true }
-			) -- Enable Telescope extensions if they are installed
+			vim.api.nvim_set_keymap("n", "<leader>tc", ":TransparentToggle<CR>", { noremap = true, silent = true }) -- Enable Telescope extensions if they are installed
 			pcall(require("telescope").load_extension, "fzf")
 			pcall(require("telescope").load_extension, "ui-select")
 
@@ -342,7 +387,9 @@ require("lazy").setup({
 				":Telescope repo list<CR>",
 				{ noremap = true, silent = true, desc = "[S]earch [G]it [R]epositories" }
 			)
+			vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
 			vim.keymap.set("n", "<leader>b", ":Neotree toggle<CR>", { noremap = true, silent = true })
+			vim.keymap.set("n", "<leader>ts", ":ASToggle<CR>")
 			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 			vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 			vim.keymap.set("n", "<leader>p", builtin.find_files, { desc = "[S]earch [F]iles" })
@@ -610,11 +657,29 @@ require("lazy").setup({
 					end,
 					jdtls = function()
 						require("java").setup({
-							-- Your custom jdtls settings goes here
+							jdk = {
+								auto_install = false,
+							},
 						})
 
 						require("lspconfig").jdtls.setup({
-							-- Your custom nvim-java configuration goes here
+							jdk = {
+								auto_install = false,
+							},
+
+							settings = {
+								java = {
+									configuration = {
+										runtimes = {
+											{
+												name = "JavaSE-23",
+												path = "/usr/bin/java",
+												default = true,
+											},
+										},
+									},
+								},
+							},
 						})
 					end,
 				},
