@@ -169,7 +169,7 @@ require("lazy").setup({
 			require("obsidian").setup({
 				ft = "markdown",
 				templates = {
-					folder = "~/vaults/personal/template",
+					folder = "~/vaults/PrivateV/5 - Templates/",
 				},
 				daily_notes = {
 					folder = "./daily",
@@ -186,7 +186,7 @@ require("lazy").setup({
 				workspaces = {
 					{
 						name = "personal",
-						path = "~/vaults/personal/nvim/",
+						path = "~/vaults/PrivateV/",
 					},
 				},
 			})
