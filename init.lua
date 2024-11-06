@@ -6,7 +6,6 @@ vim.g.maplocalleader = " "
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
-
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
@@ -77,6 +76,8 @@ vim.opt.scrolloff = 10
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
+
+vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action, { desc = "Code Action" })
 vim.keymap.set("n", "<leader><CR>", ":ToggleTerm<CR>")
 --
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -121,16 +122,7 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 -- [[ Configure and install plugins ]]
---
---  To check the current status of your plugins, run
---    :Lazy
---
---  You can press `?` in this menu for help. Use `:q` to close the window
---
---  To update plugins you can run
---    :Lazy update
---
--- NOTE: Here is where you install your plugins.
+require("custom.autosave").setup()
 require("lazy").setup({
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
 	{
@@ -165,6 +157,9 @@ require("lazy").setup({
 				completion = {
 					nvim_cmp = true,
 					min_chars = 2,
+				},
+				attachments = {
+					img_folder = "assets/",
 				},
 				dependencies = {
 					"nvim-lua/plenary.nvim",
@@ -218,9 +213,6 @@ require("lazy").setup({
 				},
 			})
 		end,
-	},
-	{
-		"pocco81/auto-save.nvim",
 	},
 	{
 		"airblade/vim-rooter",
@@ -398,7 +390,7 @@ require("lazy").setup({
 			)
 			vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
 			vim.keymap.set("n", "<leader>b", ":Neotree toggle<CR>", { noremap = true, silent = true })
-			vim.keymap.set("n", "<leader>ts", ":ASToggle<CR>")
+			vim.keymap.set("n", "<leader>ts", toggle_autosave)
 			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 			vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 			vim.keymap.set("n", "<leader>p", builtin.find_files, { desc = "[S]earch [F]iles" })
@@ -544,8 +536,6 @@ require("lazy").setup({
 
 					-- Execute a code action, usually your cursor needs to be on top of an error
 					-- or a suggestion from your LSP for this to activate.
-					map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
-
 					-- WARN: This is not Goto Definition, this is Goto Declaration.
 					--  For example, in C this would take you to the header.
 					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
@@ -734,7 +724,7 @@ require("lazy").setup({
 				-- python = { "isort", "black" },
 				--
 				-- You can use 'stop_after_first' to run the first available formatter from the list
-				-- javascript = { "prettierd", "prettier", stop_after_first = true },
+				javascript = { "prettierd", "prettier", stop_after_first = true },
 			},
 		},
 	},
