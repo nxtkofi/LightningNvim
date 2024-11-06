@@ -140,40 +140,7 @@ require("lazy").setup({
 		end,
 	},
 	{ "mbbill/undotree" },
-	{
-		"epwalsh/obsidian.nvim",
-		version = "*", -- recommended, use latest release instead of latest commit
-		config = function()
-			require("obsidian").setup({
-				ft = "markdown",
-				templates = {
-					folder = "~/vaults/PrivateV/5 - Templates/",
-				},
-				daily_notes = {
-					folder = "./daily",
-					default_tags = { "daily-notes" },
-					template = "daily.md",
-				},
-				completion = {
-					nvim_cmp = true,
-					min_chars = 2,
-				},
-				attachments = {
-					img_folder = "assets/",
-				},
-				dependencies = {
-					"nvim-lua/plenary.nvim",
-				},
-				workspaces = {
-					{
-						name = "personal",
-						path = "~/vaults/PrivateV/",
-					},
-				},
-			})
-		end,
-	},
-	{
+		{
 		"xiyaowong/transparent.nvim",
 		config = function()
 			require("transparent").setup({
