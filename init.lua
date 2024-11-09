@@ -857,6 +857,19 @@ require("lazy").setup({
 			-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
 			-- - sd'   - [S]urround [D]elete [']quotes
 			-- - sr)'  - [S]urround [R]eplace [)] [']
+			local animate = require("mini.animate")
+			animate.setup({
+				cursor = {
+					enable = true,
+					timing = animate.gen_timing.cubic({ easing = "in", duration = 2 }),
+				},
+        scroll={
+          enable =false,
+        },
+resize={
+          enable=false,
+        },open={enable=false},close={enable=false},
+			})
 			require("mini.surround").setup()
 
 			-- Simple and easy statusline.
