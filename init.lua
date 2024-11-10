@@ -76,7 +76,14 @@ vim.opt.scrolloff = 10
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
-
+vim.keymap.set("n", "<leader>k", function()
+	vim.cmd("silent! ?^##\\+\\s.*$")
+	vim.cmd("nohlsearch")
+end, { desc = "Go to previous markdown header" })
+vim.keymap.set("n", "<leader>j", function()
+	vim.cmd("silent! /^##\\+\\s.*$")
+	vim.cmd("nohlsearch")
+end, { desc = "Go to next markdown header" })
 vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action, { desc = "Code Action" })
 vim.keymap.set("n", "<leader><CR>", ":ToggleTerm<CR>")
 --
@@ -171,6 +178,7 @@ require("lazy").setup({
 					"StatusLineNC",
 					"EndOfBuffer",
 					"WinSeparator",
+					"winblend",
 				},
 				extra_groups = { "NeoTreeNormal", "NeoTreeNormalNC", "NeoTreeCursorLine" }, -- Możesz tu dodać dodatkowe grupy, jeśli potrzebujesz
 				exclude_groups = { -- Grupy, które pozostaną nieprzezroczyste
@@ -857,19 +865,6 @@ require("lazy").setup({
 			-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
 			-- - sd'   - [S]urround [D]elete [']quotes
 			-- - sr)'  - [S]urround [R]eplace [)] [']
-			local animate = require("mini.animate")
-			animate.setup({
-				cursor = {
-					enable = true,
-					timing = animate.gen_timing.cubic({ easing = "in", duration = 2 }),
-				},
-        scroll={
-          enable =false,
-        },
-resize={
-          enable=false,
-        },open={enable=false},close={enable=false},
-			})
 			require("mini.surround").setup()
 
 			-- Simple and easy statusline.
@@ -982,6 +977,5 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank({ higroup = "YankHighlight", timeout = 150 })
 	end,
 })
-
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
