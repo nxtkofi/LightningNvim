@@ -39,6 +39,11 @@ local function find_assets_dir(max_depth)
 	return search_up_and_down(current_path, 0)
 end
 
+local function sanitize_filename(filename)
+	-- Zamień spacje na "-"
+	return filename:gsub("%s", "-")
+end
+
 return {
 	"HakonHarnes/img-clip.nvim",
 	event = "VeryLazy",
@@ -54,7 +59,8 @@ return {
 			dir_path = function()
 				local assets_dir = find_assets_dir(3) -- Maksymalna głębokość 3
 				if assets_dir then
-					return assets_dir .. "/" .. vim.fn.expand("%:t:r") .. "-img"
+					local sanitized_name = sanitize_filename(vim.fn.expand("%:t:r"))
+					return assets_dir .. "/" .. sanitized_name .. "-img"
 				else
 					error("No 'assets' directory found within 3 levels.")
 				end
@@ -78,8 +84,8 @@ return {
 			-- extension = "png", ---@type string
 			-- process_cmd = "convert - -quality 75 png:-", ---@type string
 
-			-- extension = "jpg", ---@type string
-			-- process_cmd = "convert - -quality 75 jpg:-", ---@type string
+			--extension = "jpg", ---@type string
+			--process_cmd = "convert - -quality 75 jpg:-", ---@type string
 
 			-- -- Other parameters I found in stackoverflow
 			-- -- https://stackoverflow.com/a/27269260
