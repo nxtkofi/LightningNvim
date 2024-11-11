@@ -425,7 +425,6 @@ require("lazy").setup({
 			{ "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
-			"nvim-java/nvim-java",
 			-- Useful status updates for LSP.
 			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 			{ "j-hui/fidget.nvim", opts = {} },
@@ -628,33 +627,6 @@ require("lazy").setup({
 						-- certain features of an LSP (for example, turning off formatting for ts_ls)
 						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
 						require("lspconfig")[server_name].setup(server)
-					end,
-					jdtls = function()
-						require("java").setup({
-							jdk = {
-								auto_install = false,
-							},
-						})
-
-						require("lspconfig").jdtls.setup({
-							jdk = {
-								auto_install = false,
-							},
-
-							settings = {
-								java = {
-									configuration = {
-										runtimes = {
-											{
-												name = "JavaSE-23",
-												path = "/usr/bin/java",
-												default = true,
-											},
-										},
-									},
-								},
-							},
-						})
 					end,
 				},
 			})
@@ -904,7 +876,6 @@ require("lazy").setup({
 				"query",
 				"vim",
 				"vimdoc",
-				"java",
 			},
 			-- Autoinstall languages that are not installed
 			auto_install = true,
