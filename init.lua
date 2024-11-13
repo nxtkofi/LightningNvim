@@ -363,6 +363,8 @@ require("lazy").setup({
 				":Telescope repo list<CR>",
 				{ noremap = true, silent = true, desc = "[S]earch [G]it [R]epositories" }
 			)
+			vim.keymap.set("n", "<M-j>", ":cnext<CR>")
+			vim.keymap.set("n", "<M-k>", ":cprev<CR>")
 			vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
 			vim.keymap.set("n", "<leader>b", ":Neotree toggle<CR>", { noremap = true, silent = true })
 			vim.keymap.set("n", "<leader>ts", toggle_autosave)
