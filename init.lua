@@ -85,7 +85,13 @@ vim.keymap.set("n", "<leader>j", function()
 	vim.cmd("nohlsearch")
 end, { desc = "Go to next markdown header" })
 vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action, { desc = "Code Action" })
-vim.keymap.set("n", "<leader><CR>", ":ToggleTerm<CR>")
+vim.keymap.set("n", "<leader>1", function()
+	require("toggleterm").toggle(1) -- Terminal 1
+end, { desc = "Toggle terminal 1" })
+
+vim.keymap.set("n", "<leader>2", function()
+	require("toggleterm").toggle(2) -- Terminal 2
+end, { desc = "Toggle terminal 2" })
 --
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- Diagnostic keymaps
@@ -174,17 +180,16 @@ require("lazy").setup({
 					"SignColumn",
 					"CursorLine",
 					"CursorLineNr",
-					"StatusLine",
-					"StatusLineNC",
 					"EndOfBuffer",
 					"WinSeparator",
-					"winblend",
 				},
-				extra_groups = { "NeoTreeNormal", "NeoTreeNormalNC", "NeoTreeCursorLine" }, -- Możesz tu dodać dodatkowe grupy, jeśli potrzebujesz
+				extra_groups = { "NeoTreeNormal", "NeoTreeNormalNC", "NeoTreeCursorLine", "" }, -- Możesz tu dodać dodatkowe grupy, jeśli potrzebujesz
 				exclude_groups = { -- Grupy, które pozostaną nieprzezroczyste
 					"NormalFloat", -- Okna pływające, np. pomoc syntaxu (Shift+K)
 					"FloatBorder", -- Obramowanie dla okien pływających
 					"Term*", -- Wszystkie okna terminalowe
+					"StatusLine",
+					"StatusLineNC",
 				},
 			})
 		end,
@@ -200,6 +205,7 @@ require("lazy").setup({
 				start_in_insert = true,
 				authochdir = true,
 				direction = "horizontal",
+				winblend = 0,
 			})
 		end,
 	},
@@ -219,6 +225,13 @@ require("lazy").setup({
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("lualine").setup({
+				options = {
+					theme = "pywal",
+				},
+			})
+		end,
 	},
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
