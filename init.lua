@@ -88,7 +88,6 @@ vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action, { desc = "Code Action" })
 vim.keymap.set("n", "<leader>1", function()
 	require("toggleterm").toggle(1) -- Terminal 1
 end, { desc = "Toggle terminal 1" })
-
 vim.keymap.set("n", "<leader>2", function()
 	require("toggleterm").toggle(2) -- Terminal 2
 end, { desc = "Toggle terminal 2" })
@@ -381,8 +380,8 @@ require("lazy").setup({
 			vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
 			vim.keymap.set("n", "<leader>b", ":Neotree toggle<CR>", { noremap = true, silent = true })
 
-			vim.keymap.set("n", "<leader>odv", ":DiffviewClose<CR>", { noremap = true, silent = true })
-			vim.keymap.set("n", "<leader>cdv", ":DiffviewOpen<CR>", { noremap = true, silent = true })
+			vim.keymap.set("n", "<leader>odv", ":DiffviewOpen<CR>", { noremap = true, silent = true })
+			vim.keymap.set("n", "<leader>cdv", ":DiffviewClose<CR>", { noremap = true, silent = true })
 			vim.keymap.set("n", "<leader>tp", ":Translate pl<CR>", { noremap = true, silent = true })
 			vim.keymap.set("n", "<leader>te", ":Translate en<CR>", { noremap = true, silent = true })
 
