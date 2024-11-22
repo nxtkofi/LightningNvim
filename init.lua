@@ -4,6 +4,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 -- NOTE:
+--
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 -- [[ Setting options ]]
@@ -136,10 +137,10 @@ vim.opt.rtp:prepend(lazypath)
 require("custom.autosave").setup()
 require("lazy").setup({
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-
 	{ "mbbill/undotree" },
 	{
 		"xiyaowong/transparent.nvim",
+		priority = 999,
 		config = function()
 			require("transparent").setup({
 				groups = { -- Grupy, które będą miały przezroczyste tło
@@ -170,6 +171,7 @@ require("lazy").setup({
 				},
 				extra_groups = { "NeoTreeNormal", "NeoTreeNormalNC", "NeoTreeCursorLine", "" }, -- Możesz tu dodać dodatkowe grupy, jeśli potrzebujesz
 				exclude_groups = { -- Grupy, które pozostaną nieprzezroczyste
+					"Float",
 					"NormalFloat", -- Okna pływające, np. pomoc syntaxu (Shift+K)
 					"FloatBorder", -- Obramowanie dla okien pływających
 					"Term*", -- Wszystkie okna terminalowe
