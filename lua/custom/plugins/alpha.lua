@@ -42,7 +42,7 @@ return {
 
 		dashboard.section.buttons.val = {
 
-			dashboard.button("<C-d>", "󱓧 Open daily-notes", ":ObsidianToday<CR>"),
+			dashboard.button("<C-d>", "󱓧  Open daily-notes", ":ObsidianToday<CR>"),
 			dashboard.button("r", "󰄉  Recent files", ":Telescope oldfiles <CR>"),
 			dashboard.button("u", "󱐥  Update plugins", "<cmd>Lazy update<CR>"),
 			dashboard.button("c", "  Settings", ":e $HOME/.config/nvim/init.lua<CR>"),
