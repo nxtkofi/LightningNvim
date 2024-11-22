@@ -380,6 +380,13 @@ require("lazy").setup({
 			vim.keymap.set("n", "<M-k>", ":cprev<CR>")
 			vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
 			vim.keymap.set("n", "<leader>b", ":Neotree toggle<CR>", { noremap = true, silent = true })
+
+			vim.keymap.set("n", "<leader>tp", ":Translate pl<CR>", { noremap = true, silent = true })
+			vim.keymap.set("n", "<leader>te", ":Translate en<CR>", { noremap = true, silent = true })
+
+			vim.keymap.set("v", "<leader>tp", ":Translate pl<CR>", { noremap = true, silent = true })
+			vim.keymap.set("v", "<leader>te", ":Translate en<CR>", { noremap = true, silent = true })
+
 			vim.keymap.set("n", "<leader>ts", toggle_autosave)
 			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 			vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
