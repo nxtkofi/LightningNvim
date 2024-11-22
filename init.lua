@@ -381,6 +381,8 @@ require("lazy").setup({
 			vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
 			vim.keymap.set("n", "<leader>b", ":Neotree toggle<CR>", { noremap = true, silent = true })
 
+			vim.keymap.set("n", "<leader>odv", ":DiffviewClose<CR>", { noremap = true, silent = true })
+			vim.keymap.set("n", "<leader>cdv", ":DiffviewOpen<CR>", { noremap = true, silent = true })
 			vim.keymap.set("n", "<leader>tp", ":Translate pl<CR>", { noremap = true, silent = true })
 			vim.keymap.set("n", "<leader>te", ":Translate en<CR>", { noremap = true, silent = true })
 
