@@ -14,10 +14,12 @@ return {
 					TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
 					TelescopePreviewNormal = { bg = theme.ui.bg_dim },
 					TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+					TelescopeSelection = { fg = "#d27e99", bg = "#334155" },
 					WinSeparator = { fg = "#7D7D7D" },
 				}
 			end,
 		})
+		vim.api.nvim_set_hl(0, "Visual", { bg = "#334155" })
 		vim.api.nvim_set_hl(0, "@tag.tsx", { fg = "#fcb8d5" })
 		vim.cmd.colorscheme("kanagawa")
 	end,
