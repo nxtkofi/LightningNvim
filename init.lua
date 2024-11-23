@@ -144,6 +144,14 @@ require("lazy").setup({
 		config = function()
 			require("transparent").setup({
 				groups = { -- Grupy, które będą miały przezroczyste tło
+					"CursorLine",
+					"NonText",
+					"Operator",
+					"Structure",
+					"SignColumn",
+					"LineNr",
+					"WinSeparator",
+					"CursorLineNr",
 					"Normal",
 					"NormalNC",
 					"Comment",
@@ -159,42 +167,46 @@ require("lazy").setup({
 					"Function",
 					"Conditional",
 					"Repeat",
-					"Operator",
-					"Structure",
-					"LineNr",
-					"NonText",
-					"SignColumn",
-					"CursorLine",
-					"CursorLineNr",
-					"EndOfBuffer",
-					"WinSeparator",
 				},
-				extra_groups = { "NeoTreeNormal", "NeoTreeNormalNC", "NeoTreeCursorLine", "" }, -- Możesz tu dodać dodatkowe grupy, jeśli potrzebujesz
+				extra_groups = {
+					"NeoTreeNormal",
+					"NeoTreeNormalNC",
+					"NeoTreeCursorLine",
+					"GitSignsText",
+					"GitSignsAdd",
+					"GitSignsAdded",
+					"GitSignsChange",
+					"GitSignsChanged",
+					"GitSignsDelete",
+					"GitSignsDeleted",
+					"GitSignsUpdate",
+					"GitSignsUpdated",
+					"GitSignsTopdelete",
+					"GitSignsTopdeleteNr",
+					"GitSignsUntracked",
+					"GitSignsUntrackedNr",
+				}, -- Możesz tu dodać dodatkowe grupy, jeśli potrzebujesz
 				exclude_groups = { -- Grupy, które pozostaną nieprzezroczyste
+					"MsgArea",
+					"WinBar",
+					"WinBarNC",
+					"EndOfBuffer",
 					"Float",
 					"NormalFloat", -- Okna pływające, np. pomoc syntaxu (Shift+K)
 					"FloatBorder", -- Obramowanie dla okien pływających
-					"Term*", -- Wszystkie okna terminalowe
+					"Term", -- Wszystkie okna terminalowe
 					"StatusLine",
 					"StatusLineNC",
+					"VertSplit",
+					"Split",
+					"Separator",
+					"Horizontal",
 				},
 			})
 		end,
 	},
 	{
 		"airblade/vim-rooter",
-	},
-	{
-		"akinsho/toggleterm.nvim",
-		version = "*",
-		config = function()
-			require("toggleterm").setup({
-				start_in_insert = true,
-				authochdir = true,
-				direction = "horizontal",
-				winblend = 0,
-			})
-		end,
 	},
 	{
 		"cljoly/telescope-repo.nvim",
@@ -433,7 +445,16 @@ require("lazy").setup({
 		dependencies = {
 			-- Automatically install LSPs and related tools to stdpath for Neovim
 			{ "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
-			"williamboman/mason-lspconfig.nvim",
+			{
+				"williamboman/mason-lspconfig.nvim",
+				config = function()
+					require("mason-lspconfig").setup({
+						ensure_installed = {
+							"jdtls",
+						},
+					})
+				end,
+			},
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			-- Useful status updates for LSP.
 			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -442,6 +463,7 @@ require("lazy").setup({
 			-- Allows extra capabilities provided by nvim-cmp
 			"hrsh7th/cmp-nvim-lsp",
 		},
+
 		config = function()
 			-- Brief aside: **What is LSP?**
 			--
@@ -578,6 +600,18 @@ require("lazy").setup({
 			--
 			--  Add any additional override configuration in the following tables. Available keys are:
 			--  - cmd (table): Override the default command used to start the server
+			local lspconfig = require("lspconfig")
+			local lsp_attach = function(client, bufnr) end
+			require("mason-lspconfig").setup_handlers({
+				function(server_name) -- Zmienna poprawnie nazwana
+					if server_name ~= "jdtls" then -- Poprawny operator nierówności
+						lspconfig[server_name].setup({
+							on_attach = lsp_attach,
+							capabilities = capabilities,
+						})
+					end
+				end,
+			})
 			--  - filetypes (table): Override the default list of associated filetypes for the server
 			--  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
 			--  - settings (table): Override the default settings passed when initializing the server.
@@ -625,6 +659,8 @@ require("lazy").setup({
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
+				"java-debug-adapter",
+				"java-test",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
