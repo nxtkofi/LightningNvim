@@ -13,7 +13,7 @@ vim.g.have_nerd_font = true
 --  For more options, you can see `:help option-list`
 
 -- Make line numbers default
-vim.opt.conceallevel = 1
+vim.opt.conceallevel = 3
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
@@ -597,7 +597,7 @@ require("lazy").setup({
 				-- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
 				--  If you are experiencing weird indenting issues, add the language to
 				--  the list of additional_vim_regex_highlighting and disabled languages for indent.
-				additional_vim_regex_highlighting = { "markdown" },
+				--[[ additional_vim_regex_highlighting = { "markdown" }, ]]
 			},
 			indent = { enable = true, disable = { "ruby" } },
 		},

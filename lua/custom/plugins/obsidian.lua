@@ -3,6 +3,9 @@ return {
 	version = "*", -- recommended, use latest release instead of latest commit
 	config = function()
 		require("obsidian").setup({
+			ui = {
+				enable = false,
+			},
 			ft = "markdown",
 			-- Optional, alternatively you can customize the frontmatter data.
 			---@return table
