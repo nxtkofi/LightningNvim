@@ -10,8 +10,8 @@ return {
 			checkboxes = presets_checkboxes.nerd,
 			headings = presets_headings.simple, --other cool opts are presets.arrowed or presets.glow_center
 			horizontal_rules = presets_horizontal.double,
-			modes = { "n" },
-			hybrid_modes = { "n" },
+			modes = { "n", "i", "c" },
+			hybrid_modes = { "n", "i", "c" },
 		})
 	end,
 	dependencies = {
