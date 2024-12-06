@@ -278,10 +278,14 @@ require("lazy").setup({
 			{
 				"<leader>f",
 				function()
+					local ft = vim.bo.filetype
+					if ft == "typescript" or ft == "typescriptreact" then
+						vim.cmd("TSToolsAddMissingImports")
+					end
 					require("conform").format({ async = true, lsp_format = "fallback" })
 				end,
 				mode = "",
-				desc = "[F]ormat buffer",
+				desc = "[F]ormat buffer and add missing imports",
 			},
 		},
 		opts = {
