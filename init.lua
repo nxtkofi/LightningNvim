@@ -325,6 +325,7 @@ require("lazy").setup({
 		event = "InsertEnter",
 		dependencies = {
 			-- Snippet Engine & its associated nvim-cmp source
+			"mlaursen/vim-react-snippets",
 			{
 				"L3MON4D3/LuaSnip",
 				build = (function()
@@ -358,6 +359,7 @@ require("lazy").setup({
 		},
 		config = function()
 			-- See `:help cmp`
+			require("vim-react-snippets").lazy_load()
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
 			luasnip.config.setup({})
