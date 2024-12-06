@@ -47,7 +47,7 @@ map("n", "<C-CR>", function()
 end, "Open URL in Firefox")
 
 -- Telescope commands
-map("n", "<leader>sgr", ":Telescope repo list<CR>", "[S]earch [G]it [R]epositories", { noremap = true, silent = true })
+map("n", "<leader>sp", ":Telescope repo list<CR>", "[S]earch Git [P]rojects", { noremap = true, silent = true })
 map("n", "<leader>sh", builtin.help_tags, "[S]earch [H]elp")
 map("n", "<leader>sk", builtin.keymaps, "[S]earch [K]eymaps")
 map("n", "<leader>p", builtin.find_files, "[S]earch [F]iles")
@@ -83,8 +83,8 @@ map("n", "<leader>u", ":UndotreeToggle<CR>", "Toggle UndoTree")
 map("n", "<leader>b", ":Neotree toggle<CR>", "Toggle NeoTree", { noremap = true, silent = true })
 
 -- Diffview
-map("n", "<leader>odv", ":DiffviewOpen<CR>", "Open DiffView")
-map("n", "<leader>cdv", ":DiffviewClose<CR>", "Close DiffView")
+map("n", "<leader>dvo", ":DiffviewOpen<CR>", "DiffView Open")
+map("n", "<leader>dvc", ":DiffviewClose<CR>", "DiffView Close")
 
 -- Translate
 map("n", "<leader>tp", ":Translate pl<CR>", "Translate to Polish")

@@ -8,7 +8,7 @@ return {
 		local presets_horizontal = require("markview.presets").horizontal_rules
 		require("markview").setup({
 			checkboxes = presets_checkboxes.nerd,
-			headings = presets_headings.simple, --other cool opts are presets.arrowed or presets.glow_center
+			headings = presets_headings.glow, --other cool opts are presets.arrowed or presets.glow_center
 			horizontal_rules = presets_horizontal.double,
 			modes = { "n", "i", "c" },
 			hybrid_modes = { "n", "i", "c" },
