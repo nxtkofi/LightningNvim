@@ -37,15 +37,43 @@ map("n", "<up>", '<cmd>echo "Use k to move!!"<CR>', "Hint: Use k")
 map("n", "<down>", '<cmd>echo "Use j to move!!"<CR>', "Hint: Use j")
 
 -- Firefox URL opener
-map("n", "<C-CR>", function()
-	local url = vim.fn.expand("<cWORD>")
-	if url:match("^https?://") then
-		vim.fn.jobstart({ "firefox", url }, { detach = true })
-	else
-		print("No url detected.")
-	end
-end, "Open URL in Firefox")
 
+map("n", "<C-CR>", function()
+	-- Pobierz linię, w której znajduje się kursor
+	local line = vim.fn.getline(".")
+	-- Pobierz pozycję kursora w tej linii
+	local cursor_col = vim.fn.col(".")
+
+	-- Funkcja do sprawdzania, czy kursor znajduje się w zakresie
+	local function is_cursor_within_range(start_pos, end_pos)
+		return cursor_col >= start_pos and cursor_col <= end_pos
+	end
+
+	-- Wyszukaj Markdown-style linki `[tekst](url)`
+	for label, url in line:gmatch("%[(.-)%]%((.-)%)") do
+		local start_pos, end_pos = line:find("%[" .. label .. "%]%(" .. url .. "%)")
+		if start_pos and end_pos and is_cursor_within_range(start_pos, end_pos) then
+			if url:match("^https?://") then
+				vim.fn.jobstart({ "firefox", url }, { detach = true })
+				return
+			else
+				print("No valid URL detected.")
+				return
+			end
+		end
+	end
+
+	-- Wyszukaj URL w nawiasach `()`
+	for url in line:gmatch("%b()") do
+		local clean_url = url:sub(2, -2) -- Usuń nawiasy
+		if clean_url:match("^https?://") then
+			vim.fn.jobstart({ "firefox", clean_url }, { detach = true })
+			return
+		end
+	end
+
+	print("No valid URL detected.")
+end, "Open URL in Firefox")
 -- Telescope commands
 map("n", "<leader>sp", ":Telescope repo list<CR>", "[S]earch Git [P]rojects", { noremap = true, silent = true })
 map("n", "<leader>sh", builtin.help_tags, "[S]earch [H]elp")
