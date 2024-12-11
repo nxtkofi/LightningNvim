@@ -520,8 +520,8 @@ require("lazy").setup({
 		},
 	},
 })
-
 require("keymaps")
+vim.diagnostic.config({ virtual_text = false })
 --Lightning-like yanking highlight
 vim.api.nvim_set_hl(0, "Visual", { bg = "#475569" })
 vim.api.nvim_set_hl(0, "YankHighlight", { bg = "#00274D", fg = "#ADD8E6", bold = true })

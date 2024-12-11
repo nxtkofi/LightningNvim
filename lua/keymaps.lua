@@ -5,7 +5,19 @@ local map = function(mode, keys, func, desc, opts)
 end
 
 local builtin = require("telescope.builtin")
+local dap = require("dap")
 
+-- Set keymaps to control the debugger
+map("n", "<F5>", dap.continue)
+
+map("n", "<F9>", dap.step_back)
+map("n", "<F10>", dap.step_into)
+map("n", "<F11>", dap.step_over)
+map("n", "<F12>", dap.step_out)
+map("n", "<leader>tb", dap.toggle_breakpoint)
+map("n", "<leader>B", function()
+	require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+end)
 -- LSP and Diagnostics
 map("n", "<C-.>", vim.lsp.buf.code_action, "Code Action")
 map("n", "[d", vim.diagnostic.goto_prev, "Go to prev [D]iagnostic message")
