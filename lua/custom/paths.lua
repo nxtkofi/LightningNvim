@@ -7,7 +7,7 @@ local paths = {
 	},
 	obsidian_dirs = {
 		templates = "./5 - Templates/",
-		dailynotes = "./daily",
+		dailynotes = "~/vaults/PrivateV/daily/",
 		attachments = "~/vaults/PrivateV/assets/",
 		generalpath = "~/vaults/PrivateV",
 	},
