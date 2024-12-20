@@ -3,6 +3,7 @@
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.g.markdown_folding = 1
 -- NOTE:
 --
 -- Set to true if you have a Nerd Font installed and selected in the terminal
