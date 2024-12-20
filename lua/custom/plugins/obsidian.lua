@@ -1,3 +1,4 @@
+local paths = require("custom.paths")
 return {
 	"epwalsh/obsidian.nvim",
 	version = "*", -- recommended, use latest release instead of latest commit
@@ -23,10 +24,10 @@ return {
 				return out
 			end,
 			templates = {
-				folder = "~/vaults/PrivateV/5 - Templates/",
+				folder = paths.obsidian_dirs.templates,
 			},
 			daily_notes = {
-				folder = "./daily",
+				folder = paths.obsidian_dirs.daily_notes,
 				default_tags = { "daily-notes" },
 				template = "daily.md",
 			},
@@ -35,7 +36,7 @@ return {
 				min_chars = 2,
 			},
 			attachments = {
-				img_folder = "assets/",
+				img_folder = paths.obsidian_dirs.attachments,
 			},
 			dependencies = {
 				"nvim-lua/plenary.nvim",
@@ -43,7 +44,7 @@ return {
 			workspaces = {
 				{
 					name = "personal",
-					path = "~/vaults/PrivateV/",
+					path = paths.obsidian_dirs.attachments,
 				},
 			},
 		})

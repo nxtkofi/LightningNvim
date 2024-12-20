@@ -1,6 +1,7 @@
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
+local paths = require("custom.paths")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.markdown_folding = 1
@@ -228,10 +229,7 @@ require("lazy").setup({
 					},
 					repo = {
 						list = {
-							search_dirs = {
-								"~/Dev/Projects",
-								"~/Dev/AI",
-							},
+							search_dirs = paths.search_dirs,
 							mappings = {
 								i = {
 									["<CR>"] = function(prompt_bufnr)
