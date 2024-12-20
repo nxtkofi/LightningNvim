@@ -28,7 +28,7 @@ return {
 				dashboard.config.layout[2] = new_header
 				vim.cmd("AlphaRedraw") -- Przeładuj dashboard
 			else
-				print("Brak plików nagłówków w folderze header_img.")
+				print("No images inside header_img folder.")
 			end
 		end
 
@@ -37,7 +37,7 @@ return {
 		if header then
 			dashboard.config.layout[2] = header
 		else
-			print("Brak plików nagłówków w folderze header_img.")
+			print("No images inside header_img folder.")
 		end
 
 		dashboard.section.buttons.val = {
