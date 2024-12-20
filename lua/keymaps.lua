@@ -143,5 +143,13 @@ map("n", "<leader>ts", toggle_autosave, "Toggle Autosave")
 -- Quickfix navigation
 map("n", "<M-j>", ":cnext<CR>", "Next Quickfix")
 map("n", "<M-k>", ":cprev<CR>", "Previous Quickfix")
+
 -- Transparecy toggle
 map("n", "<leader>tc", ":TransparentToggle<CR>", "Toggle transparency", { noremap = true, silent = true })
+
+-- Moving around markdown headers
+map("n", "<leader>j", [[/^##\+ .*<CR>]], "Go to previous markdown header")
+map("n", "<leader>k", [[?^##\+ .*<CR>]], "Go to next markdown header")
+
+-- LazyGit - declared in lazygit.lua -  <leader>lg - Opens Lazygit
+-- CodeSnap - declared in codesnap.lua -  <leader>cc - Takes beautiful snapshot of code and saves in clipboard
