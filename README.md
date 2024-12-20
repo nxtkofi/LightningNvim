@@ -100,3 +100,4 @@ at the end of keymaps.lua so You can easily find them!)
 - xiyaowong/transparent.nvim
 - pmizio/typescript-tools.nvim
 - Asthestarsfalll/img2art
+- andrewferrier/wrapping.nvim
