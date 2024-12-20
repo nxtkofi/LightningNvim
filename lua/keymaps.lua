@@ -37,10 +37,11 @@ end, "Toggle terminal 2")
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", "Clear search highlight")
 map("t", "<Esc><Esc>", "<C-\\><C-n>", "Exit terminal mode")
 -- Window navigation
-map("n", "<C-h>", "<C-w><C-h>", "Move focus to the left window")
-map("n", "<C-l>", "<C-w><C-l>", "Move focus to the right window")
-map("n", "<C-j>", "<C-w><C-j>", "Move focus to the lower window")
-map("n", "<C-k>", "<C-w><C-k>", "Move focus to the upper window")
+-- This depends on Your preferences, I was always using <C-w><C-direction> and have never had any problems with it, therefore I don't need those mappings
+--[[ map("n", "<C-h>", "<C-w><C-h>", "Move focus to the left window") ]]
+--[[ map("n", "<C-l>", "<C-w><C-l>", "Move focus to the right window") ]]
+--[[ map("n", "<C-j>", "<C-w><C-j>", "Move focus to the lower window") ]]
+--[[ map("n", "<C-k>", "<C-w><C-k>", "Move focus to the upper window") ]]
 
 -- Arrow keys hint
 map("n", "<left>", '<cmd>echo "Use h to move!!"<CR>', "Hint: Use h")
