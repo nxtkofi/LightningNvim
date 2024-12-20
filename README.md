@@ -13,7 +13,7 @@ LightningNvim provides
 - Markdown files support 
 - Obsidian integration
 - AutoSave
-- pasting images from clipboard into Your .md files
+- pasting images from clipboard into Your .md files<br/>
 and many more plugins that You will find incredibly useful.
 
 ## Dashboard images
@@ -23,7 +23,7 @@ with a quick style fix from me, that's going to speed up the
 process by 90%.
 
 >[!important]
-> For more details or custom output options visit [Asthestarsfalll's img2art github repository](https://github.com/Asthestarsfalll/img2art) 
+> For more details or custom output options visit [Asthestarsfalll's img2art github repository](https://github.com/Asthestarsfalll/img2art) <br/>
 > Without him none of this would be possible! 
 
 #### img2art Installation
@@ -52,7 +52,7 @@ What does it do:
 
 You should have Your output file now!
 Move it into header_img folder.
-Now to set a header image go ahead and check out my ./lua/custom/plugins/alpha.lua file.
+Now to set a header image go ahead and check out my ./lua/custom/plugins/alpha.lua file.<br/>
 Function `load_random_header()` loads random header image from header_img folder on nvim startup.
 
 >[!important]
