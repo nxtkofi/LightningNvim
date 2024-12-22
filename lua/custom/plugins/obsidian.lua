@@ -27,7 +27,7 @@ return {
 				folder = paths.obsidian_dirs.templates,
 			},
 			daily_notes = {
-				folder = paths.obsidian_dirs.daily_notes,
+				folder = paths.obsidian_dirs.dailynotes,
 				default_tags = { "daily-notes" },
 				template = "daily.md",
 			},
@@ -44,7 +44,7 @@ return {
 			workspaces = {
 				{
 					name = "personal",
-					path = paths.obsidian_dirs.attachments,
+					path = paths.obsidian_dirs.generalpath,
 				},
 			},
 		})

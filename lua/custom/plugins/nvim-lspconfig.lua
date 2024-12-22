@@ -161,6 +161,7 @@ return {
 			"stylua", -- Used to format Lua code
 			"java-debug-adapter",
 			"java-test",
+			"gopls",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 		local lspconfig = require("lspconfig")
