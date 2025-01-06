@@ -3,14 +3,14 @@
 local paths = {
 	search_dirs = {
 		"~/dev/projects",
-		"~/dev/ai",
 	},
 	obsidian_dirs = {
-		templates = "./5 - Templates/",
-		dailynotes = "./daily/",
-		attachments = "./assets/",
+		templates = "~/vaults/PrivateV/5 - Templates/",
+		dailynotes = "./daily",
+		attachments = "assets/",
 		generalpath = "~/vaults/PrivateV/",
 	},
+	chat_dir = "~/vaults/PrivateV/9 - chats/",
 }
 
 return paths
