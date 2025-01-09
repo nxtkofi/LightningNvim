@@ -101,3 +101,6 @@ at the end of keymaps.lua so You can easily find them!)
 - pmizio/typescript-tools.nvim
 - Asthestarsfalll/img2art
 - andrewferrier/wrapping.nvim
+- robitx/gp.nvim,
+- copilot.lua
+- zbirenbaum/copilot.lua
