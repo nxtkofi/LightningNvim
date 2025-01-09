@@ -1,7 +1,6 @@
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
-vim.diagnostic.config({ virtual_text = false })
 local paths = require("custom.paths")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -96,7 +95,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
--- [[ Configure and install plugins ]]
 require("custom.autosave").setup()
 require("lazy").setup({
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).

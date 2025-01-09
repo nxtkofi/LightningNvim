@@ -76,6 +76,22 @@ return {
 					-- system prompt (use this to specify the persona/role of the AI)
 					system_prompt = "You are an AI assistant trained on my Zettelkasten main-notes. Your purpose is to provide me helpful insights and reviews. You opt to help me with my day-to-day note taking, template filling and new note's writing.",
 				},
+				{
+					disable = false,
+					provider = "ollama",
+					name = "Qwen 7b 🐉",
+					chat = true,
+					command = false,
+					-- string with model name or table with model name and parameters
+					model = {
+						model = "qwen2.5:7b-instruct",
+						temperature = 0.7,
+						top_p = 1,
+						min_p = 0.05,
+					},
+					-- system prompt (use this to specify the persona/role of the AI)
+					system_prompt = "You are an AI assistant trained on my Zettelkasten main-notes. Your purpose is to provide me helpful insights and reviews. You opt to help me with my day-to-day note taking, template filling and new note's writing.",
+				},
 			},
 		}
 		require("gp").setup(config)
