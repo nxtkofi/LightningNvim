@@ -10,17 +10,27 @@ return {
 			wrap = "overflow",
 		}
 
-		local function load_random_header()
-			math.randomseed(os.time())
-			local header_folder = vim.fn.stdpath("config") .. "/lua/custom/plugins/header_img/"
-			local files = vim.fn.globpath(header_folder, "*.lua", true, true)
-			if #files == 0 then
-				return nil
-			end
-			local random_file = files[math.random(#files)]
-			local module_name = "custom.plugins.header_img." .. random_file:match("([^/]+)%.lua$")
-			return require(module_name).header
-		end
+        local function load_random_header()
+            math.randomseed(os.time())
+            local header_folder = vim.fn.stdpath("config") .. "/lua/custom/plugins/header_img/"
+            local files = vim.fn.globpath(header_folder, "*.lua", true, true)
+            if #files == 0 then
+                return nil
+            end
+
+            local random_file = files[math.random(#files)]
+            local separator = package.config:sub(1, 1)
+            local module_name = "custom.plugins.header_img." .. random_file:match("([^" .. separator .. "]+)%.lua$")
+
+            package.loaded[module_name] = nil
+
+            local ok, module = pcall(require, module_name)
+            if ok and module.header then
+                return module.header
+            else
+                return nil
+            end
+        end
 
 		local function change_header()
 			local new_header = load_random_header()
