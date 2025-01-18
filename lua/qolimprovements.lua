@@ -42,4 +42,15 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank({ higroup = "YankHighlight", timeout = 150 })
 	end,
 })
+-- open init.lua on :config
+
+local function open_config()
+	local config_path = vim.fn.stdpath("config") .. "/init.lua"
+	vim.cmd("edit " .. config_path)
+end
+
+vim.api.nvim_create_user_command("Config", open_config, {
+	desc = "Opens the Neovim configuration file (init.lua)",
+})
+
 ----------------- Quality of life improvements ----------------
