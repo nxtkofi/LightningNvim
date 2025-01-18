@@ -28,6 +28,10 @@ vim.api.nvim_create_autocmd({ "WinEnter" }, {
 	end,
 })
 
+-- Auto resize splits when the terminal's window is resized
+vim.api.nvim_create_autocmd("VimResized", {
+	command = "wincmd =",
+})
 --Lightning-like yanking highlight
 vim.api.nvim_set_hl(0, "Visual", { bg = "#475569" })
 vim.api.nvim_set_hl(0, "YankHighlight", { bg = "#00274D", fg = "#ADD8E6", bold = true })
