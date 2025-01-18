@@ -166,5 +166,7 @@ map("n", "<leader>tc", ":TransparentToggle<CR>", "Toggle transparency", { norema
 map("n", "<leader>j", [[/^##\+ .*<CR>]], "Go to previous markdown header")
 map("n", "<leader>k", [[?^##\+ .*<CR>]], "Go to next markdown header")
 
+-- Toggle between markview hybrid and normal mode (whether or not You want to see line under cursor being rendered)
+map("n", "<leader>mt", ":Markview hybridToggle<CR>", "[M]arkview [T]oggle Hybrid Mode")
 -- LazyGit - declared in lazygit.lua -  <leader>lg - Opens Lazygit
 -- CodeSnap - declared in codesnap.lua -  <leader>cc - Takes beautiful snapshot of code and saves in clipboard

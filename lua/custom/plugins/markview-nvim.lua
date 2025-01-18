@@ -11,7 +11,8 @@ return {
 			headings = presets_headings.glow, --other cool opts are presets.arrowed or presets.glow_center
 			horizontal_rules = presets_horizontal.double,
 			modes = { "n", "i", "c" },
-			hybrid_modes = { "i", "c" },
+			hybrid_modes = { "n", "i", "c" },
+			render_distance = 100,
 		})
 	end,
 	dependencies = {
