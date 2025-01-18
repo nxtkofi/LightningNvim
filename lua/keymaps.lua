@@ -113,6 +113,12 @@ vim.keymap.set("n", "<leader>zf", function()
 	builtin.find_files({ cwd = zettelkasten_directory })
 end, { desc = "Search [Z]ettelkasten [F]iles." })
 -- TODO: exclude /daily from search
+--
+vim.keymap.set("n", "<leader>sl", function()
+	local word = vim.fn.input("Search in current line: ")
+	local line_number = vim.fn.line(".")
+	vim.cmd("/\\%" .. line_number .. "l" .. word)
+end, { desc = "[S]earch [L]ine for word " })
 
 -- Advanced Telescope examples
 map("n", "<leader>/", function()
@@ -146,7 +152,6 @@ map("n", "<leader>tp", ":Translate pl<CR>", "Translate to Polish")
 map("v", "<leader>tp", ":Translate pl<CR>", "Translate to Polish (Visual)")
 map("n", "<leader>te", ":Translate en<CR>", "Translate to English")
 map("v", "<leader>te", ":Translate en<CR>", "Translate to English (Visual)")
-
 -- Diagnostics toggle
 map("n", "<leader>ts", toggle_autosave, "Toggle Autosave")
 
