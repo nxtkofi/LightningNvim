@@ -19,8 +19,13 @@ return {
 				}
 			end,
 		})
-		vim.api.nvim_set_hl(0, "Visual", { bg = "#334155" })
-		vim.api.nvim_set_hl(0, "@tag.tsx", { fg = "#fcb8d5" })
-		vim.cmd.colorscheme("kanagawa")
+		--[[ vim.cmd.colorscheme("kanagawa") ]]
+		local function changeVisual()
+			if vim.o.background == "dark" and vim.g.colors_name == "kanagawa" then
+				vim.api.nvim_set_hl(0, "Visual", { bg = "#334155" })
+				vim.api.nvim_set_hl(0, "@tag.tsx", { fg = "#fcb8d5" })
+			end
+		end
+		changeVisual()
 	end,
 }
