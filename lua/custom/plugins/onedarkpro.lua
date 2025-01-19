@@ -1,15 +1,19 @@
 return {
 	"olimorris/onedarkpro.nvim",
-	--[[ priority = 1000, ]]
+	priority = 1001,
 	config = function()
 		require("onedarkpro").setup({
+			highlights = {
+				CurSearch = { fg = "#0a805c", bg = "#add1d7", style = "reverse" },
+			},
 			options = {
-				cursorline = true,
+				highlight_inactive_windows = true,
+				window_unfocused_color = true,
+				cursorline = false,
 				terminal_colors = true,
-				transparency = vim.g.transparent_enabled,
+				transparency = true,
 				theme = "onedark",
 			},
 		})
-		--[[ vim.cmd.colorscheme("onedark") ]]
 	end,
 }
