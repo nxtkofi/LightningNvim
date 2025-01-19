@@ -5,11 +5,11 @@
 ![Dashboard on enter, example random header](/Preview/Pasted%20image%2020241103021543.png)
 
 ## LightningNvim
-Is a productivity tool. It was made for people who just like
+Was made for people who just like
 me want to stay in a flow for as long as possible.
 LightningNvim provides
 - Debugging tools for Java and Typescript (React too).
-- In-file translation 
+- In-file text translation 
 - Markdown files support 
 - Obsidian integration
 - AutoSave
@@ -77,6 +77,7 @@ at the end of keymaps.lua so You can easily find them!)
 - ray-x - go.nvim
 - andrewferrier - wrapping.nvim
 - lewis6991 - gitsigns.nvim
+- tadaa - vimade
 - mistricky - codesnap.nvim
 - robitx - gp.nvim
 - epwalsh - obsidian.nvim
@@ -111,7 +112,7 @@ at the end of keymaps.lua so You can easily find them!)
 - HakonHarnes - img-clip.nvim
 - nvim-lualine - lualine.nvim
 - windwp - nvim-autopairs
-- folke - todo-comments.nvim
+- folke - todo-comments.nvim 
 - OlegGulevskyy - better-ts-errors.nvim
 - hedyhli - outline.nvim
 - airblade - vim-rooter
