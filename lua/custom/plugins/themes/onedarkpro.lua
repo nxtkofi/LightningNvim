@@ -13,6 +13,5 @@ return {
 				theme = "onedark",
 			},
 		})
-		vim.cmd.colorscheme("onedark_vivid")
 	end,
 }

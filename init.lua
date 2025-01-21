@@ -11,6 +11,7 @@ vim.opt.rtp:prepend(lazypath)
 require("custom.autosave").setup()
 require("lazy").setup({
 	{ import = "custom.plugins" },
+	{ import = "custom.plugins.themes" },
 }, {
 	ui = {
 		icons = vim.g.have_nerd_font and {} or {
