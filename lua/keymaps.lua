@@ -4,7 +4,7 @@ local map = function(mode, keys, func, desc, opts)
 	vim.keymap.set(mode, keys, func, opts)
 end
 
-local paths = require("custom.paths")
+local setup = require("setup")
 local builtin = require("telescope.builtin")
 local dap = require("dap")
 
@@ -105,7 +105,7 @@ map("n", "<leader>sr", builtin.resume, "[S]earch [R]esume")
 map("n", "<leader>s.", builtin.oldfiles, '[S]earch Recent Files ("." for repeat)')
 map("n", "<leader><leader>", builtin.buffers, "[ ] Find existing buffers")
 
-local zettelkasten_directory = vim.fn.expand(paths.obsidian_dirs.generalpath)
+local zettelkasten_directory = vim.fn.expand(setup.obsidian_dirs.generalpath)
 vim.keymap.set("n", "<leader>zt", function()
 	builtin.live_grep({ cwd = zettelkasten_directory })
 end, { desc = "Search [Z]ettelkasten [T]ext." })
