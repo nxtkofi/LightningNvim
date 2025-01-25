@@ -1,4 +1,4 @@
-local paths = require("custom.paths")
+local setup = require("setup")
 return {
 	"nvim-telescope/telescope.nvim",
 	event = "VimEnter",
@@ -25,7 +25,7 @@ return {
 				},
 				repo = {
 					list = {
-						search_dirs = paths.search_dirs,
+						search_dirs = .search_dirs,
 						mappings = {
 							i = {
 								["<CR>"] = function(prompt_bufnr)

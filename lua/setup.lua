@@ -1,6 +1,8 @@
 -- This file is custom for each user. Define Your paths necessary for this config to run here.
 -- They are imported at the top of init.lua file and used across it
-local paths = {
+local setup = {
+	priority = 2000,
+	colorscheme = "onedark",
 	search_dirs = {
 		"~/dev/projects",
 	},
@@ -13,4 +15,4 @@ local paths = {
 	chat_dir = "~/vaults/PrivateV/9 - chats/",
 }
 
-return paths
+return setup

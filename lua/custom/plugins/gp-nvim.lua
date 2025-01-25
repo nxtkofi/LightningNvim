@@ -1,11 +1,11 @@
-local paths = require("custom.paths")
+local setup = require("setup")
 return {
 	"robitx/gp.nvim",
 	config = function()
 		local config = {
-			chat_dir = vim.fn.expand(paths.chat_dir),
+			chat_dir = vim.fn.expand(setup.chat_dir),
 			chat_user_prefix = "## nxtkofi ☕:",
-			chat_assistant_prefix = { "## 📖", "[{{agent}}]:" },
+			chat_assistant_prefix = { "## 📖", "[{{agent}}:" },
 			providers = {
 				openai = {
 					disable = true,
@@ -46,7 +46,7 @@ return {
 					chat = true,
 					command = false,
 					-- string with model name or table with model name and parameters
-					model = { model = "gemini", temperature = 0.8, top_p = 1, top_k = 3 },
+					model = { model = "gemini", temperature = 0.3, top_p = 1, top_k = 1 },
 					-- system prompt (use this to specify the persona/role of the AI)
 					system_prompt = "You are a general AI assistant.",
 				},
@@ -75,6 +75,22 @@ return {
 					},
 					-- system prompt (use this to specify the persona/role of the AI)
 					system_prompt = "You are an AI assistant trained on my Zettelkasten main-notes. Your purpose is to provide me helpful insights and reviews. You opt to help me with my day-to-day note taking, template filling and new note's writing.",
+				},
+				{
+					disable = false,
+					provider = "ollama",
+					name = "DeepSeek 🌊",
+					chat = true,
+					command = false,
+					-- string with model name or table with model name and parameters
+					model = {
+						model = "deepseek-r1:14b",
+						temperature = 0.8,
+						top_p = 1,
+						min_p = 0.05,
+					},
+					-- system prompt (use this to specify the persona/role of the AI)
+					system_prompt = "You are an AI assistant trained on my Zettelkasten main-notes. Your purpose is to provide me helpful insights and reviews. You opt to help me with my day-to-day note taking, creating insightful connections between my notes and asking creative questions. All your answers should be supported by Markdown.",
 				},
 			},
 		}

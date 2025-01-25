@@ -34,5 +34,6 @@ require("lazy").setup({
 		notify = false,
 	},
 })
+
 require("qolimprovements")
 require("keymaps")
