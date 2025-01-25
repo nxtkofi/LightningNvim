@@ -30,6 +30,9 @@ require("lazy").setup({
 			lazy = "💤 ",
 		},
 	},
+	change_detection = {
+		notify = false,
+	},
 })
 require("qolimprovements")
 require("keymaps")
