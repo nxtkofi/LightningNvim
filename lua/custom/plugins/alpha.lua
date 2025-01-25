@@ -10,27 +10,27 @@ return {
 			wrap = "overflow",
 		}
 
-        local function load_random_header()
-            math.randomseed(os.time())
-            local header_folder = vim.fn.stdpath("config") .. "/lua/custom/plugins/header_img/"
-            local files = vim.fn.globpath(header_folder, "*.lua", true, true)
-            if #files == 0 then
-                return nil
-            end
+		local function load_random_header()
+			math.randomseed(os.time())
+			local header_folder = vim.fn.stdpath("config") .. "/lua/custom/plugins/header_img/"
+			local files = vim.fn.globpath(header_folder, "*.lua", true, true)
+			if #files == 0 then
+				return nil
+			end
 
-            local random_file = files[math.random(#files)]
-            local separator = package.config:sub(1, 1)
-            local module_name = "custom.plugins.header_img." .. random_file:match("([^" .. separator .. "]+)%.lua$")
+			local random_file = files[math.random(#files)]
+			local separator = package.config:sub(1, 1)
+			local module_name = "custom.plugins.header_img." .. random_file:match("([^" .. separator .. "]+)%.lua$")
 
-            package.loaded[module_name] = nil
+			package.loaded[module_name] = nil
 
-            local ok, module = pcall(require, module_name)
-            if ok and module.header then
-                return module.header
-            else
-                return nil
-            end
-        end
+			local ok, module = pcall(require, module_name)
+			if ok and module.header then
+				return module.header
+			else
+				return nil
+			end
+		end
 
 		local function change_header()
 			local new_header = load_random_header()
@@ -51,16 +51,14 @@ return {
 		end
 
 		dashboard.section.buttons.val = {
-
 			dashboard.button("<C-d>", "󱓧  Open daily-notes", ":ObsidianToday<CR>"),
 			dashboard.button("r", "󰄉  Recent files", ":Telescope oldfiles <CR>"),
 			dashboard.button("u", "󱐥  Update plugins", "<cmd>Lazy update<CR>"),
 			dashboard.button("c", "  Settings", ":e $HOME/.config/nvim/init.lua<CR>"),
-			dashboard.button("p", "  Projects", ":e $HOME/Dev/Projects <CR>"),
-			dashboard.button("d", "󱗼  Dotfiles", ":e $HOME/dotfiles <CR>"),
 			dashboard.button("w", "  Change header image", function()
 				change_header()
 			end),
+			dashboard.button("t", "🖮  Practice typing with Typr ", ":Typr<CR>"),
 		}
 
 		vim.api.nvim_create_autocmd("User", {
