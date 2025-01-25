@@ -4,6 +4,7 @@ local map = function(mode, keys, func, desc, opts)
 	vim.keymap.set(mode, keys, func, opts)
 end
 
+local setup = require("setup")
 local builtin = require("telescope.builtin")
 local dap = require("dap")
 
@@ -104,6 +105,21 @@ map("n", "<leader>sr", builtin.resume, "[S]earch [R]esume")
 map("n", "<leader>s.", builtin.oldfiles, '[S]earch Recent Files ("." for repeat)')
 map("n", "<leader><leader>", builtin.buffers, "[ ] Find existing buffers")
 
+local zettelkasten_directory = vim.fn.expand(setup.obsidian_dirs.generalpath)
+vim.keymap.set("n", "<leader>zt", function()
+	builtin.live_grep({ cwd = zettelkasten_directory })
+end, { desc = "Search [Z]ettelkasten [T]ext." })
+vim.keymap.set("n", "<leader>zf", function()
+	builtin.find_files({ cwd = zettelkasten_directory })
+end, { desc = "Search [Z]ettelkasten [F]iles." })
+-- TODO: exclude /daily from search
+--
+vim.keymap.set("n", "<leader>sl", function()
+	local word = vim.fn.input("Search in current line: ")
+	local line_number = vim.fn.line(".")
+	vim.cmd("/\\%" .. line_number .. "l" .. word)
+end, { desc = "[S]earch [L]ine for word " })
+
 -- Advanced Telescope examples
 map("n", "<leader>/", function()
 	builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
@@ -136,7 +152,6 @@ map("n", "<leader>tp", ":Translate pl<CR>", "Translate to Polish")
 map("v", "<leader>tp", ":Translate pl<CR>", "Translate to Polish (Visual)")
 map("n", "<leader>te", ":Translate en<CR>", "Translate to English")
 map("v", "<leader>te", ":Translate en<CR>", "Translate to English (Visual)")
-
 -- Diagnostics toggle
 map("n", "<leader>ts", toggle_autosave, "Toggle Autosave")
 
@@ -151,5 +166,7 @@ map("n", "<leader>tc", ":TransparentToggle<CR>", "Toggle transparency", { norema
 map("n", "<leader>j", [[/^##\+ .*<CR>]], "Go to previous markdown header")
 map("n", "<leader>k", [[?^##\+ .*<CR>]], "Go to next markdown header")
 
+-- Toggle between markview hybrid and normal mode (whether or not You want to see line under cursor being rendered)
+map("n", "<leader>mt", ":Markview hybridToggle<CR>", "[M]arkview [T]oggle Hybrid Mode")
 -- LazyGit - declared in lazygit.lua -  <leader>lg - Opens Lazygit
 -- CodeSnap - declared in codesnap.lua -  <leader>cc - Takes beautiful snapshot of code and saves in clipboard

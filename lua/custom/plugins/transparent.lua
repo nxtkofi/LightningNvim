@@ -1,6 +1,6 @@
 return {
 	"xiyaowong/transparent.nvim",
-	priority = 999,
+	priority = 1099,
 	config = function()
 		require("transparent").setup({
 			groups = { -- Grupy, które będą miały przezroczyste tło

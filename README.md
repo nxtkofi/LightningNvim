@@ -5,11 +5,11 @@
 ![Dashboard on enter, example random header](/Preview/Pasted%20image%2020241103021543.png)
 
 ## LightningNvim
-Is a productivity tool. It was made for people who just like
+Was made for people who just like
 me want to stay in a flow for as long as possible.
 LightningNvim provides
 - Debugging tools for Java and Typescript (React too).
-- In-file translation 
+- In-file text translation 
 - Markdown files support 
 - Obsidian integration
 - AutoSave
@@ -73,34 +73,48 @@ at the end of keymaps.lua so You can easily find them!)
 
 <i>"You guys, you guys are the real heroes!"</i>
 
-- numToStr/Comment.nvim
-- goolord/alpha-nvim
-- windwp/nvim-autopairs
-- OlegGulevskyy/better-ts-errors.nvim
-- mistricky/codesnap.nvim
-- sindrets/diffview.nvim
-- 3rd/image.nvim
-- HakonHarnes/img-clip.nvim
-- rebelot/kanagawa.nvim
-- kdheepak/lazygit.nvim
-- OXY2DEV/markview.nvim
-- nvim-neo-tree/neo-tree.nvim
-- rcarriga/nvim-dap-ui
-- mfussenegger/nvim-jdtls
-- neovim/nvim-lspconfig"
-- JoosepAlviste/nvim-ts-context-commentstring
-- epwalsh/obsidian.nvim
-- olimorris/onedarkpro.nvim
-- hedyhli/outline.nvim
-- rose-pine/neovim
-- rachartier/tiny-inline-diagnostic.nvim
-- folke/todo-comments.nvim
-- akinsho/toggleterm.nvim
-- uga-rosa/translate.nvim
-- xiyaowong/transparent.nvim
-- pmizio/typescript-tools.nvim
-- Asthestarsfalll/img2art
-- andrewferrier/wrapping.nvim
-- robitx/gp.nvim,
-- copilot.lua
-- zbirenbaum/copilot.lua
+- sindrets - diffview.nvim
+- ray-x - go.nvim
+- andrewferrier - wrapping.nvim
+- lewis6991 - gitsigns.nvim
+- tadaa - vimade
+- mistricky - codesnap.nvim
+- robitx - gp.nvim
+- epwalsh - obsidian.nvim
+- tpope - vim-sleuth
+- mbbill - undotree
+- windwp - nvim-ts-autotag
+- xiyaowong - transparent.nvim
+- nvim-treesitter - nvim-treesitter
+- olimorris - onedarkpro.nvim
+- hrsh7th - nvim-cmp
+- akinsho - toggleterm.nvim
+- rose-pine - neovim
+- cljoly - telescope-repo.nvim
+- numToStr - Comment.nvim
+- nvim-telescope - telescope.nvim
+- neovim - nvim-lspconfig
+- rebelot - kanagawa.nvim
+- nvim-neo-tree - neo-tree.nvim
+- OXY2DEV - markview.nvim
+- 3rd - image.nvim
+- stevearc - conform.nvim
+- folke - lazydev.nvim
+- goolord - alpha-nvim
+- mfussenegger - nvim-jdtls
+- kdheepak - lazygit.nvim
+- rachartier - tiny-inline-diagnostic.nvim
+- Bilal2453 - luvit-meta
+- echasnovski - mini.nvim
+- JoosepAlviste - nvim-ts-context-commentstring
+- uga-rosa - translate.nvim
+- zbirenbaum - copilot.lua
+- HakonHarnes - img-clip.nvim
+- nvim-lualine - lualine.nvim
+- windwp - nvim-autopairs
+- folke - todo-comments.nvim 
+- OlegGulevskyy - better-ts-errors.nvim
+- hedyhli - outline.nvim
+- airblade - vim-rooter
+- pmizio - typescript-tools.nvim
+- rcarriga - nvim-dap-ui

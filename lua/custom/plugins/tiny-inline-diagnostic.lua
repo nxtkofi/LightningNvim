@@ -1,12 +1,14 @@
 return {
 	"rachartier/tiny-inline-diagnostic.nvim",
-	event = "LspAttach", -- Or `VeryLazy`
-	priority = 1000, -- needs to be loaded in first
+	event = "LspAttach",
+	priority = 1000,
 	config = function()
 		require("tiny-inline-diagnostic").setup({
+			preset = "modern",
 			options = {
 				multilines = true,
 			},
 		})
+		vim.diagnostic.config({ virtual_text = false })
 	end,
 }

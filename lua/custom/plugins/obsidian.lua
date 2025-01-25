@@ -1,4 +1,4 @@
-local paths = require("custom.paths")
+local setup = require("setup")
 return {
 	"epwalsh/obsidian.nvim",
 	version = "*", -- recommended, use latest release instead of latest commit
@@ -24,10 +24,10 @@ return {
 				return out
 			end,
 			templates = {
-				folder = paths.obsidian_dirs.templates,
+				folder = setup.obsidian_dirs.templates,
 			},
 			daily_notes = {
-				folder = paths.obsidian_dirs.dailynotes,
+				folder = setup.obsidian_dirs.dailynotes,
 				default_tags = { "daily-notes" },
 				template = "daily.md",
 			},
@@ -36,7 +36,7 @@ return {
 				min_chars = 2,
 			},
 			attachments = {
-				img_folder = paths.obsidian_dirs.attachments,
+				img_folder = setup.obsidian_dirs.attachments,
 			},
 			dependencies = {
 				"nvim-lua/plenary.nvim",
@@ -44,7 +44,7 @@ return {
 			workspaces = {
 				{
 					name = "personal",
-					path = paths.obsidian_dirs.generalpath,
+					path = setup.obsidian_dirs.generalpath,
 				},
 			},
 		})
