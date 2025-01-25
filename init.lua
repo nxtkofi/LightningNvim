@@ -34,7 +34,5 @@ require("lazy").setup({
 		notify = false,
 	},
 })
-local setup = require("setup")
-vim.cmd.colorscheme(setup.colorscheme)
 require("qolimprovements")
 require("keymaps")
