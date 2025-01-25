@@ -5,7 +5,7 @@ return {
 		local config = {
 			chat_dir = vim.fn.expand(setup.chat_dir),
 			chat_user_prefix = "## nxtkofi ☕:",
-			chat_assistant_prefix = { "## 📖", "[{{agent}}:" },
+			chat_assistant_prefix = { "## 📖", "{{agent}}:" },
 			providers = {
 				openai = {
 					disable = true,
