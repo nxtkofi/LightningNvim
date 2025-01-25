@@ -2,7 +2,7 @@
 -- They are imported at the top of init.lua file and used across it
 local setup = {
 	priority = 2000,
-	colorscheme = "onedark",
+	colorscheme = "kanagawa",
 	search_dirs = {
 		"~/dev/projects",
 	},

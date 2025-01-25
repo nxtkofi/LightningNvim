@@ -25,7 +25,7 @@ return {
 				},
 				repo = {
 					list = {
-						search_dirs = .search_dirs,
+						search_dirs = setup.search_dirs,
 						mappings = {
 							i = {
 								["<CR>"] = function(prompt_bufnr)
