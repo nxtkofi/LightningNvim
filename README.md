@@ -1,9 +1,17 @@
 ## Preview
-![Dashboard with open console and Neo-Tree](/Preview/Pasted%20image%2020241103022048.png)
-![Dashboard on enter, example random header](/Preview/Pasted%20image%2020241103021712.png)
-![Dashboard on enter, example random header](/Preview/Pasted%20image%2020241103021637.png)
-![Dashboard on enter, example random header](/Preview/Pasted%20image%2020241103021543.png)
 
+![Dashboard on-load](./assets/README-img/2025-01-26-at-01-15-23.avif)
+*First-look when loading to dashboard*
+![Dashboard jpy](./assets/README-img/2025-01-26-at-01-17-13.avif)
+*Changing image with "w" key in dashboard*
+![Running typr from dashboard](./assets/README-img/2025-01-26-at-01-17-43.avif)
+*Running Typr plugin directly from dashboard*
+![Quick markdown look](./assets/README-img/2025-01-26-at-01-21-21.avif)
+*Quick markdown look*
+
+![Showcase](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHRkbGxuMnY2Mnh5eXF2aHVhNWRtd2QxZDF1MTVydm5idWZkcnBpcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0fq1PBCdISAc2DckVg/giphy.gif)
+If You're using kitty You can preview images inside of neovim and paste them with `<leader>v`!
+The script on `<leader>v` automatically searches the closest `/assets/` directory and pastes an image there. If it can't find one - it creates it for you!
 ## LightningNvim
 Was made for people who just like
 me want to stay in a flow for as long as possible.
