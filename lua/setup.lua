@@ -3,8 +3,7 @@ local setup = {
 	-- Choose a colorscheme from the list of available colorschemes.
 	-- You can find them in the ./custom/plugins/colorschemes/ folder.
 	-- You can also browse colorschemes by simply typing :Telescope colorscheme
-	-- Loading colorscheme here is optional. You can also load it in the colorscheme file, at the end of config function by writing vim.cmd.colorscheme("<colorscheme_name")
-	colorscheme = "onedark",
+	colorscheme = "material",
 	search_dirs = {
 		-- Point to your projects folder
 		-- Allows You to navigte through projects with <leader>sp

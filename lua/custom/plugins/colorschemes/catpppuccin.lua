@@ -1,13 +1,11 @@
 return {
 	"catppuccin/nvim",
-	priority = 1009,
+	priority = 1000,
+	cond = vim.g.setup.colorscheme == "catppuccin",
 	config = function()
-		local setup = require("setup")
-		if setup.colorscheme == "catppuccin" then
-			require("catppuccin").setup({
-				transparent_background = vim.g.transparent_enabled,
-			})
-			vim.cmd.colorscheme("catppuccin")
-		end
+		require("catppuccin").setup({
+			transparent_background = vim.g.transparent_enabled,
+		})
+		vim.cmd.colorscheme("catppuccin")
 	end,
 }
