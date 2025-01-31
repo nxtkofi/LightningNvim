@@ -67,4 +67,5 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
-
+-- Remove the ~ tilde signs at the end of the buffer
+vim.opt.fillchars = { eob = " " }
