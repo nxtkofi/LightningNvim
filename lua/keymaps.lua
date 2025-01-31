@@ -139,9 +139,9 @@ map("n", "<leader>sn", function()
 	builtin.find_files({ cwd = vim.fn.stdpath("config") })
 end, "[S]earch [N]eovim files")
 
--- UndoTree and NeoTree
+-- UndoTree and file explorer
 map("n", "<leader>u", ":UndotreeToggle<CR>", "Toggle UndoTree")
-map("n", "<leader>b", ":Neotree toggle<CR>", "Toggle NeoTree", { noremap = true, silent = true })
+map("n", "<leader>b", ":lua Snacks.explorer()<CR>", "Toggle file explorer", { noremap = true, silent = true })
 
 -- Diffview
 map("n", "<leader>dvo", ":DiffviewOpen<CR>", "DiffView Open")

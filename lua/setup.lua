@@ -3,7 +3,7 @@ local setup = {
 	-- Choose a colorscheme from the list of available colorschemes.
 	-- You can find them in the ./custom/plugins/colorschemes/ folder.
 	-- You can also browse colorschemes by simply typing :Telescope colorscheme
-	colorscheme = "material",
+	colorscheme = "onedark",
 	search_dirs = {
 		-- Point to your projects folder
 		-- Allows You to navigte through projects with <leader>sp

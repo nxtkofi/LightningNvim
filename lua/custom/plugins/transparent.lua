@@ -29,9 +29,9 @@ return {
 				"Repeat",
 			},
 			extra_groups = {
-				"NeoTreeNormal",
-				"NeoTreeNormalNC",
-				"NeoTreeCursorLine",
+				--[[ "NeoTreeNormal", ]]
+				--[[ "NeoTreeNormalNC", ]]
+				--[[ "NeoTreeCursorLine", ]]
 				"GitSignsText",
 				"GitSignsAdd",
 				"GitSignsAdded",

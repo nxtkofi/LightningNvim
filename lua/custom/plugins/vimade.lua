@@ -12,7 +12,7 @@ return {
 			custom = {
 				highlights = {
 					"EndOfBuffer",
-					"/^NeoTree.*/",
+					--[[ "/^NeoTree.*/", ]]
 					--"/^lualine.*/", -- Uncomment this if You want to make lualine transparent
 					"/^.undotree.*/",
 					"/^undotree_highlight.*/",
