@@ -5,13 +5,12 @@ return {
 		picker = {
 			sources = {
 				explorer = {
-					layout = { preset = "sidebar", preview = false },
+					layout = { layout = { position = "right" } },
+					follow_file = false,
+					jump = { close = false },
+					supports_live = false,
 				},
 			},
-		},
-
-		layout = {
-			sidebar = { position = "right" },
 		},
 	},
 }
