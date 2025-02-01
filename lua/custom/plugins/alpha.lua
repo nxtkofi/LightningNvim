@@ -36,13 +36,11 @@ return {
 			local new_header = load_random_header()
 			if new_header then
 				dashboard.config.layout[2] = new_header
-				vim.cmd("AlphaRedraw") -- Przeładuj dashboard
+				vim.cmd("AlphaRedraw")
 			else
 				print("No images inside header_img folder.")
 			end
 		end
-
-		-- Inicjalne załadowanie nagłówka
 		local header = load_random_header()
 		if header then
 			dashboard.config.layout[2] = header
@@ -51,11 +49,12 @@ return {
 		end
 
 		dashboard.section.buttons.val = {
-			dashboard.button("<C-d>", "󱓧  Open daily-notes", ":ObsidianToday<CR>"),
-			dashboard.button("r", "󰄉  Recent files", ":Telescope oldfiles <CR>"),
-			dashboard.button("u", "󱐥  Update plugins", "<cmd>Lazy update<CR>"),
-			dashboard.button("c", "  Settings", ":e $HOME/.config/nvim/init.lua<CR>"),
-			dashboard.button("w", "  Change header image", function()
+			dashboard.button("<C-d>", "📝 Open daily-notes", ":ObsidianToday<CR>"),
+			dashboard.button("<C-r>", "❓ Open random note", ":lua require('utils').open_random_note()<CR>"),
+			dashboard.button("r", "⌛ Recent files", ":Telescope oldfiles <CR>"),
+			dashboard.button("u", "🔌 Update plugins", "<cmd>Lazy update<CR>"),
+			dashboard.button("c", "🛠️ Settings", ":e $HOME/.config/nvim/init.lua<CR>"),
+			dashboard.button("w", "🖌️ Change header image", function()
 				change_header()
 			end),
 			dashboard.button("t", "🖮  Practice typing with Typr ", ":Typr<CR>"),

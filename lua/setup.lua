@@ -27,6 +27,7 @@ local setup = {
 		dailynotes = "./daily", -- point to a daily notes folder in Your zettelkasten like so: ./daily/
 		attachments = "myAssets/", -- point to an assets folder in Your zettelkasten like so: assets/
 		generalpath = "~/path/to/vault/", --~/myvaults/mainvault/
+		mainnotes = "~/path/to/vault/mainnotes/", -- This direction specifies what is the main folder for Your notes. This information is used in dashboard - to pick a random note from Your main notes.
 	},
 	chat_dir = "~/path/to/vault/botchats/", -- This folder can be anywhere in the filesystem. I just happen to want to have my LLM chats inside zettelkasten, so I can reference to them anytime I want.
 }
