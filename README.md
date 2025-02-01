@@ -1,15 +1,19 @@
 ## Preview
 
-![First-look](./assets/README-img/2025-01-26-at-01-37-42.avif)
-*First-look on opening NeoVim*
-![jpy-image](./assets/README-img/2025-01-26-at-01-38-28.avif)
-*Changing image with "w" key in dashboard*
+![arcane_ekko image preview](/home/piotrek/.config/nvim-public/assets/README-img/2025-02-01-at-15-01-04.avif)
+*Arcane_ekko.jpg image preview*
+![Arcane wild rune image](/home/piotrek/.config/nvim-public/assets/README-img/2025-02-01-at-15-02-21.avif)
+*You can change images while at dashboard with `w` key*
+![Manage tasks](/home/piotrek/.config/nvim-public/assets/README-img/2025-02-01-at-15-05-17.avif)
+*`<C-t>` Let's You manage Your daily tasks from Your Zettelkasten!*
+![Updated task](/home/piotrek/.config/nvim-public/assets/README-img/2025-02-01-at-15-05-53.avif)
+*And You can see them update in real-time!*
 ![Running typr from dashboard](./assets/README-img/2025-01-26-at-01-38-57.avif)
 *Running Typr plugin directly from dashboard*
 ![Quick markdown look](./assets/README-img/2025-01-26-at-01-40-22.avif)
 *Quick markdown look*
 
-![Showcase](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHRkbGxuMnY2Mnh5eXF2aHVhNWRtd2QxZDF1MTVydm5idWZkcnBpcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0fq1PBCdISAc2DckVg/giphy.gif)
+![Showcase](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHRkbGxuMnY2Mnh5eXF2aHVhNWRtd2QxZDF1MTVydm5idWZkcnBpcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0fq1PBCdISAc2DckVg/giphy.gif)<br>
 If You're using kitty You can preview images inside of neovim and paste them with `<leader>v`!
 The script on `<leader>v` automatically searches the closest `/assets/` directory and pastes an image there. If it can't find one - it creates it for you!
 ## LightningNvim
@@ -43,13 +47,12 @@ Due to the fix that we had to apply make sure that You have python's `poetry` in
 2. Install requirements inside the project root
 ```
 cd img2art
-python -m venv
+python -m venv ./venv
 source venv/bin/activate 
 pip install typer opencv-python numpy
 ```
 
-We're now ready to go!
-Run:
+3. We're now ready to go! Run:
 `poetry run python -m img2art.cli ~/path/to/picture.jpg --scale 0.3 --threshold 20 --save-raw ./test.lua --alpha`
 
 What does it do:
@@ -66,13 +69,8 @@ Function `load_random_header()` loads random header image from header_img folder
 >[!important]
 > Make sure you add `local header = load_random_header()` - otherwise Your image will not get initialized.
 
-
 >[!tip]
 > I also wrote a function `change_header()` which let's you change header when you press `w` in dashboard.
-
-```typescript
-let showdown = true,
-```
 
 ## Keymaps
 All keymaps are defined in /lua/keymaps.lua (except for
