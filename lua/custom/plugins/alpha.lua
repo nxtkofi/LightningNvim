@@ -10,17 +10,28 @@ return {
 			wrap = "overflow",
 		}
 
+		local function get_all_files_in_dir(dir)
+			local files = {}
+			local scan = vim.fn.globpath(dir, "**/*.lua", true, true)
+			for _, file in ipairs(scan) do
+				table.insert(files, file)
+			end
+			return files
+		end
+
 		local function load_random_header()
 			math.randomseed(os.time())
 			local header_folder = vim.fn.stdpath("config") .. "/lua/custom/plugins/header_img/"
-			local files = vim.fn.globpath(header_folder, "*.lua", true, true)
+			local files = get_all_files_in_dir(header_folder)
+
 			if #files == 0 then
 				return nil
 			end
 
 			local random_file = files[math.random(#files)]
-			local separator = package.config:sub(1, 1)
-			local module_name = "custom.plugins.header_img." .. random_file:match("([^" .. separator .. "]+)%.lua$")
+			local relative_path = random_file:sub(#header_folder + 1)
+			local module_name = "custom.plugins.header_img."
+				.. relative_path:gsub("/", "."):gsub("\\", "."):gsub("%.lua$", "")
 
 			package.loaded[module_name] = nil
 
@@ -41,6 +52,7 @@ return {
 				print("No images inside header_img folder.")
 			end
 		end
+
 		local header = load_random_header()
 		if header then
 			dashboard.config.layout[2] = header
