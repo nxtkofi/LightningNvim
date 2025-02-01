@@ -1,17 +1,23 @@
 ## Preview
 
-![arcane_ekko image preview](/home/piotrek/.config/nvim-public/assets/README-img/2025-02-01-at-15-01-04.avif)
+![arcane_ekko image preview](./assets/README-img/2025-02-01-at-15-01-04.avif)
 *Arcane_ekko.jpg image preview*
-![Arcane wild rune image](/home/piotrek/.config/nvim-public/assets/README-img/2025-02-01-at-15-02-21.avif)
+---
+![Arcane wild rune image](./assets/README-img/2025-02-01-at-15-02-21.avif)
 *You can change images while at dashboard with `w` key*
-![Manage tasks](/home/piotrek/.config/nvim-public/assets/README-img/2025-02-01-at-15-05-17.avif)
+---
+![Manage tasks](./assets/README-img/2025-02-01-at-15-05-17.avif)
 *`<C-t>` Let's You manage Your daily tasks from Your Zettelkasten!*
-![Updated task](/home/piotrek/.config/nvim-public/assets/README-img/2025-02-01-at-15-05-53.avif)
+---
+![Updated task](./assets/README-img/2025-02-01-at-15-05-53.avif)
 *And You can see them update in real-time!*
+---
 ![Running typr from dashboard](./assets/README-img/2025-01-26-at-01-38-57.avif)
 *Running Typr plugin directly from dashboard*
+---
 ![Quick markdown look](./assets/README-img/2025-01-26-at-01-40-22.avif)
 *Quick markdown look*
+---
 
 ![Showcase](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHRkbGxuMnY2Mnh5eXF2aHVhNWRtd2QxZDF1MTVydm5idWZkcnBpcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0fq1PBCdISAc2DckVg/giphy.gif)<br>
 If You're using kitty You can preview images inside of neovim and paste them with `<leader>v`!
