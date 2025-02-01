@@ -4,6 +4,7 @@ return {
 	config = function()
 		local alpha = require("alpha")
 		local dashboard = require("alpha.themes.dashboard")
+		local utils = require("utils")
 		_Gopts = {
 			position = "center",
 			hl = "Type",
@@ -60,18 +61,63 @@ return {
 			print("No images inside header_img folder.")
 		end
 
+		dashboard.section.tasks = {
+			type = "text",
+			val = utils.get_today_tasks(),
+			opts = {
+				position = "center",
+				hl = "Comment",
+				width = 50,
+			},
+		}
+
 		dashboard.section.buttons.val = {
 			dashboard.button("<C-d>", "📝 Open daily-notes", ":ObsidianToday<CR>"),
 			dashboard.button("<C-r>", "❓ Open random note", ":lua require('utils').open_random_note()<CR>"),
-			dashboard.button("r", "⌛ Recent files", ":Telescope oldfiles <CR>"),
-			dashboard.button("u", "🔌 Update plugins", "<cmd>Lazy update<CR>"),
-			dashboard.button("c", "🛠️ Settings", ":e $HOME/.config/nvim/init.lua<CR>"),
+			dashboard.button("<C-t>", "✅ Toggle tasks", function()
+				require("utils").show_interactive_tasks()
+			end),
 			dashboard.button("w", "🖌️ Change header image", function()
 				change_header()
 			end),
+			dashboard.button("c", "🛠️ Settings", ":e $HOME/.config/nvim/init.lua<CR>"),
+			dashboard.button("r", "⌛ Recent files", ":Telescope oldfiles <CR>"),
 			dashboard.button("t", "🖮  Practice typing with Typr ", ":Typr<CR>"),
+			dashboard.button("u", "🔌 Update plugins", "<cmd>Lazy update<CR>"),
 		}
 
+		dashboard.config.layout = {
+			{ type = "padding", val = 3 },
+			header,
+			{ type = "padding", val = 2 },
+			{
+				type = "group",
+				val = {
+					{
+						type = "group",
+						val = {
+							{
+								type = "text",
+								val = "📅 Tasks for today",
+								opts = { hl = "Keyword", position = "center" },
+							},
+							dashboard.section.tasks,
+						},
+						opts = { spacing = 1 },
+					},
+					{
+						type = "group",
+						val = dashboard.section.buttons.val,
+						opts = { spacing = 1 },
+					},
+				},
+				opts = {
+					layout = "horizontal",
+				},
+			},
+			{ type = "padding", val = 2 },
+			dashboard.section.footer,
+		}
 		vim.api.nvim_create_autocmd("User", {
 			pattern = "LazyVimStarted",
 			desc = "Add Alpha dashboard footer",
