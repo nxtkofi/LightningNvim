@@ -1,9 +1,7 @@
 local setup = {
-	priority = 2000,
-	-- Choose a colorscheme from the list of available colorschemes.
-	-- You can find them in the ./custom/plugins/colorschemes/ folder.
-	-- You can also browse colorschemes by simply typing :Telescope colorscheme
-	colorscheme = "onedark",
+	priority = 3000,
+	transparency = false,
+	colorscheme = "oldworld",
 	search_dirs = {
 		-- Point to your projects folder
 		-- Allows You to navigte through projects with <leader>sp
