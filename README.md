@@ -1,3 +1,11 @@
+> [!Warning]
+> Last commits port the config to neovim's lsp feature significantly simplifying
+> logic necessary for lsps to work. Make sure to checkout documentation on how
+> to add Your desired LSPs - https://github.com/neovim/nvim-lspconfig/tree/master/lsp <br>
+> Side note: usually all You have to do is paste configuration to `/lsp/`
+> folder, enable the name in init.lua and install the lsp using Your preferred
+> package manager. For useful examples check out my `/lsp/` directory.
+
 ## Preview
 
 ![arcane_ekko image preview](./assets/README-img/2025-02-01-at-15-01-04.avif)
@@ -21,14 +29,19 @@
 
 ![Showcase](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHRkbGxuMnY2Mnh5eXF2aHVhNWRtd2QxZDF1MTVydm5idWZkcnBpcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0fq1PBCdISAc2DckVg/giphy.gif)<br>
 If You're using kitty You can preview images inside of neovim and paste them with `<leader>v`!
-The script on `<leader>v` automatically searches the closest `/assets/` directory and pastes an image there. If it can't find one - it creates it for you!
+The script on `<leader>v` automatically searches the closest `/assets/` directory (up to 3 dirs up) and pastes an image there. If it can't find one - it creates it for you!
+
 ## LightningNvim
-Was made for people who just like
-me want to stay in a flow for as long as possible.
-LightningNvim provides
-- Debugging tools for Java and Typescript (React too).
+Was made for people who just like me want to stay in a flow for as long as possible.
+LightningNvim is perfect for Web Developers, because it provides
+- Debugging tools:
+    * Java 
+    * C# 
+    * Typescript 
+    * React 
+    * Vue
 - In-file text translation 
-- Markdown files support 
+- Markdown rendering support 
 - Obsidian integration
 - AutoSave
 - pasting images from clipboard into Your .md files<br/>
