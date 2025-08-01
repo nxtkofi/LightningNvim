@@ -64,7 +64,7 @@ local config = {
 	settings = {
 		java = {
 			-- TODO Replace this with the absolute path to your main java version (JDK 17 or higher)
-			home = "/usr/lib/jvm/java-23-openjdk",
+			home = "/usr/lib/jvm/java-21-openjdk",
 			eclipse = {
 				downloadSources = true,
 			},
@@ -75,7 +75,7 @@ local config = {
 				runtimes = {
 					{
 						name = "JavaSE-20",
-						path = "/usr/lib/jvm/java-23-openjdk",
+						path = "/usr/lib/jvm/java-21-openjdk/",
 					},
 				},
 			},
