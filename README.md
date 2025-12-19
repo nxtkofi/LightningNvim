@@ -1,10 +1,5 @@
-> [!Warning]
-> Last commits port the config to neovim's lsp feature significantly simplifying
-> logic necessary for lsps to work. Make sure to checkout documentation on how
-> to add Your desired LSPs - https://github.com/neovim/nvim-lspconfig/tree/master/lsp <br>
-> Side note: usually all You have to do is paste configuration to `/lsp/`
-> folder, enable the name in init.lua and install the lsp using Your preferred
-> package manager. For useful examples check out my `/lsp/` directory.
+> [!Note]
+> Most of people and most of the start are from people looking to get that juicy image generation on their own. I myself have lost motivation (and interest) towards maintaining this repository as a Neovim repository, which it used to be. I have personally switched to [LazyVim](https://www.lazyvim.org/) and I maintain my own set of plugins there. Having the ability to simply download an `Extra` for a certain language (C#/Java/Go / whatever) is a bliss and I refuse to compete with that. I am leaving this readme purely as a tutorial on how to set up those `alpha-nvim` images. Alpha-nvim config should still be reliable to use from this config (as well as generated images and commands in obsidian plugin).
 
 ## Preview
 
@@ -26,26 +21,6 @@
 ![Quick markdown look](./assets/README-img/2025-01-26-at-01-40-22.avif)
 *Quick markdown look*
 ---
-
-![Showcase](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHRkbGxuMnY2Mnh5eXF2aHVhNWRtd2QxZDF1MTVydm5idWZkcnBpcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0fq1PBCdISAc2DckVg/giphy.gif)<br>
-If You're using kitty You can preview images inside of neovim and paste them with `<leader>v`!
-The script on `<leader>v` automatically searches the closest `/assets/` directory (up to 3 dirs up) and pastes an image there. If it can't find one - it creates it for you!
-
-## LightningNvim
-Was made for people who just like me want to stay in a flow for as long as possible.
-LightningNvim is perfect for Web Developers, because it provides
-- Debugging tools:
-    * Java 
-    * C# 
-    * Typescript 
-    * React 
-    * Vue
-- In-file text translation 
-- Markdown rendering support 
-- Obsidian integration
-- AutoSave
-- pasting images from clipboard into Your .md files<br/>
-and many more plugins that You will find incredibly useful.
 
 ## Dashboard images
 How do I set my own dashboard images? Very easy! We're going
@@ -95,54 +70,3 @@ Function `load_random_header()` loads random header image from header_img folder
 All keymaps are defined in /lua/keymaps.lua (except for
 those that were defined in plugin files - those are listed
 at the end of keymaps.lua so You can easily find them!)
-
-## Used packages
-##### Thanks to all plugin creators! 
-
-<i>"You guys, you guys are the real heroes!"</i>
-
-- sindrets - diffview.nvim
-- ray-x - go.nvim
-- andrewferrier - wrapping.nvim
-- lewis6991 - gitsigns.nvim
-- tadaa - vimade
-- mistricky - codesnap.nvim
-- robitx - gp.nvim
-- epwalsh - obsidian.nvim
-- tpope - vim-sleuth
-- mbbill - undotree
-- windwp - nvim-ts-autotag
-- xiyaowong - transparent.nvim
-- nvim-treesitter - nvim-treesitter
-- olimorris - onedarkpro.nvim
-- hrsh7th - nvim-cmp
-- akinsho - toggleterm.nvim
-- rose-pine - neovim
-- cljoly - telescope-repo.nvim
-- numToStr - Comment.nvim
-- nvim-telescope - telescope.nvim
-- neovim - nvim-lspconfig
-- rebelot - kanagawa.nvim
-- nvim-neo-tree - neo-tree.nvim
-- OXY2DEV - markview.nvim
-- 3rd - image.nvim
-- stevearc - conform.nvim
-- folke - lazydev.nvim
-- goolord - alpha-nvim
-- mfussenegger - nvim-jdtls
-- kdheepak - lazygit.nvim
-- rachartier - tiny-inline-diagnostic.nvim
-- Bilal2453 - luvit-meta
-- echasnovski - mini.nvim
-- JoosepAlviste - nvim-ts-context-commentstring
-- uga-rosa - translate.nvim
-- zbirenbaum - copilot.lua
-- HakonHarnes - img-clip.nvim
-- nvim-lualine - lualine.nvim
-- windwp - nvim-autopairs
-- folke - todo-comments.nvim 
-- OlegGulevskyy - better-ts-errors.nvim
-- hedyhli - outline.nvim
-- airblade - vim-rooter
-- pmizio - typescript-tools.nvim
-- rcarriga - nvim-dap-ui
